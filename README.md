@@ -18,3 +18,5 @@ comp426!
         -playlists
         -account info
 
+Group Members: Mattheus Bezerra, Cindy Wang, Cameron Simbeck, and Hamad AlMohaimeed.
+
