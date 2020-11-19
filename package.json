@@ -1,0 +1,24 @@
+{
+  "name": "comp426project-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Halmoha/COMP426Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Halmoha/COMP426Project/issues"
+  },
+  "homepage": "https://github.com/Halmoha/COMP426Project#readme",
+  "dependencies": {
+    "browser-sync": "^2.26.13",
+    "bulma": "^0.9.1",
+    "jquery": "^3.5.1"
+  }
+}
