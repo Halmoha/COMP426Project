@@ -1,23 +1,8 @@
 {
   "0": {
     "id": 0,
-    "name": "John",
-    "password": [
-      1,
-      2,
-      3,
-      4
-    ]
-  },
-  "2": {
-    "id": 2,
-    "name": "Mattheus",
-    "password": "password",
-    "playlist": [
-      1,
-      2,
-      3,
-      4
-    ]
+    "name": "John Smith",
+    "password": "qwerty",
+    "playlist": [1,2,3]
   }
 }

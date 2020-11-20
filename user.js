@@ -43,7 +43,4 @@ User.create = (name, password, playlist) =>{
     return u;
 }
 
-let u1 = new User(0, 'John', [1,2,3,4]);
-user_data.set(u1.id.toString(), u1);
-
 module.exports = User;
