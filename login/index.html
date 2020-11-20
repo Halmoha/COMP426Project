@@ -50,31 +50,55 @@
 	</section>
 
 	<div class="fullwidth clearfix">
-		<div id="topcontainer" class="bodycontainer clearfix">
+		<form>
 			<h1>Login</h1>
-				Username
-				<input type="text" class="form-control" id="username">
-				<br>
-				Password
-				<input type="text" class="form-control" id="password">
-				<br>
-				<input type="submit" class="button" value="Login">
-		</div>
+			<div class="field">
+				<label class="label">Username</label>
+				<div class="control">
+				  <input class="input" type="text" id="username" placeholder="Enter your username here!">
+				</div>
+			  </div>
+			  
+			  <div class="field">
+				<label class="label">Password</label>
+				<div class="control">
+				  <input class="input" type="text" id="password" placeholder="Enter your password here!">
+				</div>
+			  </div>
+			  
+			  <div class="fieldnp">
+				<div class="control">
+				  <button class="button is-link" id="submit">Login</button>
+				</div>
+			  </div>
+		</form>
 	</div>
 
 	<div class="bodycontainer">
 		<form>
-			<div class="form group">
-				Don't have an account? Signup!
-				<br>
-				Username
-				<input type="text" class="form-control" id="username">
-				<br>
-				Password
-				<input type="text" class="form-control" id="password">
-				<br>
-				<input type="submit" class="button" value="Submit">
-			</div>
+			<h1>Don't have an account? Sign up!</h1>
+			<div class="field">
+				<label class="label">Username</label>
+				<div class="control">
+				  <input class="input" type="text" id="username" placeholder="Enter your username here!">
+				</div>
+			  </div>
+			  
+			  <div class="field">
+				<label class="label">Password</label>
+				<div class="control">
+				  <input class="input" type="text" id="password" placeholder="Enter your password here!">
+				</div>
+			  </div>
+			  
+			  <div class="field is-grouped">
+				<div class="control">
+				  <button class="button is-link" id="submit">Submit</button>
+				</div>
+				<div class="control">
+				  <button class="button is-link is-light" id="cancel">Cancel</button>
+				</div>
+			  </div>
 		</form>
 
 	<div class="arrow-separator arrow-white"></div>
