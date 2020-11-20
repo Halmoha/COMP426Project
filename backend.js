@@ -48,7 +48,7 @@ app.put('/user/:id', (req, res) =>{
     res.json(user);
 });
 
-app.delete('/book/:id', (req, res) =>{
+app.delete('/user/:id', (req, res) =>{
     let user = User.findByID(req.params.id);
     if (user == null){
         res.status(404).send("User not found");

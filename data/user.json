@@ -9,18 +9,6 @@
       4
     ]
   },
-  "1": {
-    "id": 1,
-    "name": "Cameron",
-    "password": "new password",
-    "playlist": [
-      1,
-      2,
-      3,
-      4,
-      5
-    ]
-  },
   "2": {
     "id": 2,
     "name": "Mattheus",
