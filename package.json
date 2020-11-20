@@ -17,8 +17,11 @@
   },
   "homepage": "https://github.com/Halmoha/COMP426Project#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "browser-sync": "^2.26.13",
     "bulma": "^0.9.1",
+    "data-store": "^4.0.3",
+    "express": "^4.17.1",
     "jquery": "^3.5.1"
   }
 }
