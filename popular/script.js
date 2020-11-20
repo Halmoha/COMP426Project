@@ -2,7 +2,7 @@ $(function(){
     let api_key = "AIzaSyDrxzwKb_8gmqdWtdiW5_emiFcDYroEa34";
     let playlist = ''
 
-    videoSearch(api_key, "Hit songs", 10); 
+    videoSearch(api_key, "Hit Songs", 10); 
    
 
     $("form").submit(function (event) {
