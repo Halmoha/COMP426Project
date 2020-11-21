@@ -1,0 +1,75 @@
+
+
+async function register(username, email, password) {
+   const result = await axios({
+    method: 'post',
+    url: 'https://us-central1-redredistribution.cloudfunctions.net/api/register',
+    data : {
+        "username": username,
+        "password": password,
+        "email": email
+    }
+   });
+   return result;
+};
+
+async function login(email, password){
+    firebase.auth().signInWithEmailAndPassword(email, password)
+    .then((user) => {
+        alert("Logged in");
+      // Signed in 
+      // ...
+    })
+    .catch((error) => {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      alert(errorMessage);
+    });
+
+}
+
+$(function() {
+     // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    let firebaseConfig = {
+        apiKey: "AIzaSyA7kpv-iyaIVtcmmys_eIekAvRMzM7OIkw",
+        authDomain: "redredistribution.firebaseapp.com",
+        databaseURL: "https://redredistribution.firebaseio.com",
+        projectId: "redredistribution",
+        storageBucket: "redredistribution.appspot.com",
+        messagingSenderId: "5265188128",
+        appId: "1:5265188128:web:26327e636df2f57e01e345",
+        measurementId: "G-30Z3SHKGLM"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig); 
+
+    $(document).on('click','#register', function (event){
+        event.preventDefault();
+        try {
+            const username = $("#usernameR").val();
+            const password = $("#passwordR").val();
+            const email = $("#emailR").val();
+            register(username, email, password);
+            alert("Registration Successful");
+            login(username, password);
+        } catch(err){
+            alert(err.error.email);
+        }
+    })
+
+
+    $(document).on('click','#login', function (event){
+        event.preventDefault();
+        try {
+            const email = $("#email").val();
+            const password = $("#password").val();
+            login(email, password);
+        } catch(err){
+            alert(err.error.email);
+        }
+    })
+
+
+   
+})

@@ -21,11 +21,11 @@
 	<link rel="stylesheet" href="../node_modules/bulma/css/bulma.css">
 	<link rel="stylesheet" href="../styles.css" />
 	<!--[if IE]><![endif]-->
-	<script src="js/jquery.js"></script>
+	<!--<script src="js/jquery.js"></script>
 	<script src="js/countdown.js"></script>
 	<script src="js/owlcarousel.js"></script>
 	<script src="js/uikit.scrollspy.js"></script>
-	<script src="js/scripts.js"></script>
+	<script src="js/scripts.js"></script>-->
 	<!--[if lt IE 9]><script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 
@@ -53,61 +53,73 @@
 		<form>
 			<h1>Login</h1>
 			<div class="field">
-				<label class="label">Username</label>
+				<label class="label">Email</label>
 				<div class="control">
-				  <input class="input" type="text" id="username" placeholder="Enter your username here!">
+				  <input class="input" type="text" id="email" placeholder="Enter your email here!">
 				</div>
 			  </div>
 			  
 			  <div class="field">
 				<label class="label">Password</label>
 				<div class="control">
-				  <input class="input" type="text" id="password" placeholder="Enter your password here!">
+				  <input class="input" type="password" id="password" placeholder="Enter your password here!">
 				</div>
 			  </div>
 			  
 			  <div class="fieldnp">
 				<div class="control">
-				  <button class="button is-link" id="submit">Login</button>
+				  <button class="button is-link" id="login">Login</button>
 				</div>
 			  </div>
 		</form>
 	</div>
 
 	<div class="fullwidth clearfix">
-		<form>
+		<form class="login-form">
 			<h1>Don't have an account? Sign up!</h1>
 			<div class="field">
 				<label class="label">Username</label>
 				<div class="control">
-				  <input class="input" type="text" id="username" placeholder="Enter your username here!">
+				  <input class="input" type="text" id="usernameR" placeholder="Enter your username here!">
 				</div>
 			  </div>
 
 			  <div class="field">
 				  <label class="label">Email</label>
 				  <div class="control">
-					  <input class="input" type="text" id="email" placeholder="Enter a valid email here!">
+					  <input class="input" type="text" id="emailR" placeholder="Enter a valid email here!">
 				  </div>
 			  </div>
 			  
 			  <div class="field">
 				<label class="label">Password</label>
 				<div class="control">
-				  <input class="input" type="text" id="password" placeholder="Enter your password here!">
+				  <input class="input" type="password" id="passwordR" placeholder="Enter your password here!">
 				</div>
 			  </div>
 			  
 			  <div class="field is-grouped">
 				<div class="control">
-				  <button class="button is-link" id="submit">Submit</button>
+				  <button class="button is-link" id="register">Submit</button>
 				</div>
 			  </div>
 		</form>
 
 	<div class="arrow-separator arrow-white"></div>
 
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+
 
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="script.js"></script>
 
 </html>
