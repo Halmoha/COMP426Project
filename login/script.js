@@ -17,6 +17,7 @@ async function login(email, password){
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then((user) => {
         alert("Logged in");
+        window.location.href = '../account';
       // Signed in 
       // ...
     })
