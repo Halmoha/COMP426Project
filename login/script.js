@@ -3,7 +3,7 @@
 async function register(username, email, password) {
    const result = await axios({
     method: 'post',
-    url: 'https://us-central1-redredistribution.cloudfunctions.net/api/register',
+    url: 'https://us-central1-redredistribution.cloudfunctions.net/api/signup',
     data : {
         "username": username,
         "password": password,
@@ -70,7 +70,4 @@ $(function() {
             alert(err.error.email);
         }
     })
-
-
-   
 })
