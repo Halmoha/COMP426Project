@@ -1,9 +1,29 @@
 
 $(function(){
-    var playlists = ['playlist1', 'playlist2'];
+  var firebaseConfig = {
+    apiKey: "AIzaSyA7kpv-iyaIVtcmmys_eIekAvRMzM7OIkw",
+    authDomain: "redredistribution.firebaseapp.com",
+    databaseURL: "https://redredistribution.firebaseio.com",
+    projectId: "redredistribution",
+    storageBucket: "redredistribution.appspot.com",
+    messagingSenderId: "5265188128",
+    appId: "1:5265188128:web:26327e636df2f57e01e345",
+    measurementId: "G-30Z3SHKGLM"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig); 
 
+  let firestore = firebase.firestore();
+  
+  var playlists = [];
+  const docRef = firestore.collection("users").get().then(function(value){
+    value.forEach(function(doc){
+      let strPlaylists = doc.data().playlists.map(String);
+      playlists = playlists.concat(strPlaylists, playlists);
+    });
     var inputBox = document.getElementById('myInput');
     autocomplete(inputBox, playlists);
+  });
 })
 
 
