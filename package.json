@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Halmoha/COMP426Project#readme",
   "dependencies": {
+    "axios": "^0.21.0",
     "body-parser": "^1.19.0",
     "browser-sync": "^2.26.13",
     "bulma": "^0.9.1",

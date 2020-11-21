@@ -52,9 +52,9 @@ $(function() {
             const password = $("#passwordR").val();
             const email = $("#emailR").val();
             register(username, email, password);
-            alert("Registration Successful");
-            login(username, password);
+            alert("Registration Successful. Login above.");
         } catch(err){
+            console.log(err);
             alert(err.error.email);
         }
     })
