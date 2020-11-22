@@ -15,7 +15,12 @@
 
   let firestore = firebase.firestore();
 
-  const docRef = firestore.doc("test/test");
+  /*const docRef = firestore.doc("test/test");
   docRef.get().then(doc => {
       console.log(doc.data());
-  });
+  });*/
+
+  const docRef = firestore.collection("users");
+  docRef.get().then(doc => {
+    console.log(doc);
+});
