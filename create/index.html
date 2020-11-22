@@ -20,11 +20,6 @@
 	<!-- <base href="/"> -->
 	<link rel="stylesheet" href="../node_modules/bulma/css/bulma.css">
 	<!--[if IE]><![endif]-->
-	<script src="js/jquery.js"></script>
-	<script src="js/countdown.js"></script>
-	<script src="js/owlcarousel.js"></script>
-	<script src="js/uikit.scrollspy.js"></script>
-	<script src="js/scripts.js"></script>
 	<!--[if lt IE 9]><script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 
@@ -48,15 +43,40 @@
 		</div>
 	</section>
 
-	<div class="fullwidth clearfix">
-		<div id="topcontainer" class="bodycontainer clearfix">
-			<h1>Create a Playlist</h1>
+	<div class="arrow-separator arrow-white"></div>
+	<div class="bodycontainer">
+		<form>
+			<div class="form group">
+				<br>
+				<input type="text" class="form-control" id="search">
+				<br>
+				<input type="submit" class="button" value="Search">
+				<br>
+				<br>
+			</div>
+		</form>
+
+		<div class="row">
+			<div class="col-md-12">
+				<div id="videos">
+
+				</div>
+			</div>
 		</div>
 	</div>
 
-	<div class="arrow-separator arrow-white"></div>
 
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
 
 </body>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="script.js"></script>
 </html>
