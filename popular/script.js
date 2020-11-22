@@ -15,17 +15,75 @@ $(function(){
 
   let firestore = firebase.firestore();
   
-  var playlists = [];
+  var usernames = [];
   const docRef = firestore.collection("users").get().then(function(value){
     value.forEach(function(doc){
-      let strPlaylists = doc.data().playlists.map(String);
-      playlists = playlists.concat(strPlaylists, playlists);
+      let strUsername = doc.data().username;
+      usernames.push(strUsername);
     });
     var inputBox = document.getElementById('myInput');
-    autocomplete(inputBox, playlists);
+    autocomplete(inputBox, usernames);
   });
+
+  $("#submitButton").on('click', function(){
+    let submitText = $("#myInput").val();
+    submitHandler(submitText);
+  })
+
+  function submitHandler(user){
+    event.preventDefault();
+    let playlist = null;
+    const users = firestore.collection("users").get().then(function(value){
+      value.forEach(function(doc){
+        let strUsername = doc.data().username;
+        if (strUsername == user){
+          playlist = doc.data().playlists;
+        }
+      })
+      console.log(playlist);
+      if(playlist == null){
+        $("#vidDiv").empty();
+        $("#vidDiv").append($("<h1>User not found</h1>"));
+      }
+      else{
+        let api_key = "AIzaSyCDFTbOTbK2xOlwKBOKKSI8F5CO9pybQzk";
+        mainVid(playlist[0], api_key).then(() => injectPlaylist(playlist));
+      }
+    });
+  }
 })
 
+function mainVid(vidID, api){
+  return new Promise((resolve, reject) =>{
+    let vidDiv = $("#vidDiv");
+    vidDiv.empty();
+    $.get('https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=' + vidID + '&key=' + api,
+      function(data){
+          video = `
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/${data.items[0].id}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          `
+          vidDiv.append(video);
+      }
+    ).then(() => resolve());
+  })
+  
+
+    
+}
+
+function injectPlaylist(playlist){
+  let vidDiv = $("#vidDiv");
+  vidDiv.append($("<h1></h1>"));
+  //vidDiv.append($('<iframe width="560" height="315" src="https://www.youtube.com/embed/'+ playlist + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'));
+  playlist.forEach(function(video){
+    let vid = $("<article></article>")
+      vid.append($("<img>Hello</img>"))
+      .append($("<div class='details'></div>")
+        .append($("<h2>Title</h2>"))
+        .append($("<h5>Description</h5>")));
+    vidDiv.append(vid);
+  })
+}
 
 function autocomplete(inp, arr) {
     /*the autocomplete function takes two arguments,

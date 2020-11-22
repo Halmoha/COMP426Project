@@ -50,16 +50,18 @@
 
 	<div class="fullwidth clearfix">
 		<div id="topcontainer" class="bodycontainer clearfix">
-			<h1>Create a playlist</h1>
+			<h1>Find a user's playlist</h1>
 		</div>
 	</div>
 
 	<form autocomplete="off">
         <div class="autocomplete" style="width:300px;">
-          <input id="myInput" type="text" name="myPlaylist" placeholder="Playlist">
+          <input id="myInput" type="text" name="myPlaylist" placeholder="User">
         </div>
-        <input type="submit">
-    </form>
+        <input type=submit id="submitButton">
+	</form>
+	
+	<div id="vidDiv"></div>
 
 	<div class="arrow-separator arrow-white"></div>
 
@@ -71,7 +73,7 @@
 	<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src='script.js'></script>
+    <!--<script src='script.js'></script>-->
 
 
 </body>
