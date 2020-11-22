@@ -15,12 +15,19 @@
 
   let firestore = firebase.firestore();
 
-  /*const docRef = firestore.doc("test/test");
-  docRef.get().then(doc => {
-      console.log(doc.data());
-  });*/
 
-  const docRef = firestore.collection("users");
-  docRef.get().then(doc => {
-    console.log(doc);
-});
+
+  const docRef = firestore.collection("users").get().then(function(value){
+    value.forEach(function(doc){
+      console.log(doc.id, " => ", doc.data().playlists);
+    });
+  });
+  console.log("loaded");
+  console.log(docRef);
+  for(var i = 0; i < docRef.length; i++){
+    console.log(user.data());
+  }
+  //docRef.get().then(doc => {
+   //   console.log(doc);
+  //});
+
