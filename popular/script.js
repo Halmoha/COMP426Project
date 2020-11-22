@@ -1,7 +1,7 @@
 
 $(function(){
   var firebaseConfig = {
-    apiKey: "AIzaSyA7kpv-iyaIVtcmmys_eIekAvRMzM7OIkw",
+    apiKey: "AIzaSyBbmKCsD4_f9_BDSBCCB0oFP1Lhvm_4xvo",
     authDomain: "redredistribution.firebaseapp.com",
     databaseURL: "https://redredistribution.firebaseio.com",
     projectId: "redredistribution",
@@ -46,8 +46,8 @@ $(function(){
         $("#vidDiv").append($("<h1>User not found</h1>"));
       }
       else{
-        let api_key = "AIzaSyCDFTbOTbK2xOlwKBOKKSI8F5CO9pybQzk";
-        mainVid(playlist[0], api_key).then(() => injectPlaylist(playlist));
+        let api_key = "AIzaSyBbmKCsD4_f9_BDSBCCB0oFP1Lhvm_4xvo";
+        mainVid(playlist[0], api_key).then(() => injectPlaylist(playlist,api_key));
       }
     });
   }
@@ -59,6 +59,7 @@ function mainVid(vidID, api){
     vidDiv.empty();
     $.get('https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=' + vidID + '&key=' + api,
       function(data){
+        console.log(data);
           video = `
           <iframe width="560" height="315" src="https://www.youtube.com/embed/${data.items[0].id}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           `
@@ -71,17 +72,25 @@ function mainVid(vidID, api){
     
 }
 
-function injectPlaylist(playlist){
+function injectPlaylist(playlist,api){
   let vidDiv = $("#vidDiv");
-  vidDiv.append($("<h1></h1>"));
-  //vidDiv.append($('<iframe width="560" height="315" src="https://www.youtube.com/embed/'+ playlist + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'));
-  playlist.forEach(function(video){
-    let vid = $("<article></article>")
-      vid.append($("<img>Hello</img>"))
-      .append($("<div class='details'></div>")
-        .append($("<h2>Title</h2>"))
-        .append($("<h5>Description</h5>")));
+
+  playlist.forEach(videoID => {
+    $.get('https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=' + videoID + '&key=' + api,
+    function(data){
+      let title = data.items[0].snippet.title;
+      let thumbnail = data.items[0].snippet.thumbnails.default.url;  
+      let desc = data.items[0].snippet.description;
+
+      let vid = `
+      <div id=${data.items[0].id}>
+      <img src="${thumbnail}" alt="" class="thumb">
+      <h2><strong>${title}</strong></h2>
+      <p>${desc}</p>
+      </div>
+    `;
     vidDiv.append(vid);
+    });
   })
 }
 
