@@ -15,8 +15,6 @@
 
   let firestore = firebase.firestore();
 
-
-
   const docRef = firestore.collection("users").get().then(function(value){
     value.forEach(function(doc){
       console.log(doc.id, " => ", doc.data().playlists);
