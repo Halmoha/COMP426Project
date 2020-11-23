@@ -1,5 +1,5 @@
 var firebaseConfig = {
-  apiKey: "AIzaSyDrxzwKb_8gmqdWtdiW5_emiFcDYroEa34",
+  apiKey: "AIzaSyA7kpv-iyaIVtcmmys_eIekAvRMzM7OIkw",
   authDomain: "redredistribution.firebaseapp.com",
   databaseURL: "https://redredistribution.firebaseio.com",
   projectId: "redredistribution",
@@ -88,12 +88,11 @@ $(async function(){
           $.get('https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=' + videoID + '&key=' + api,
           function(data){
             let title = data.items[0].snippet.title;
-            let thumbnail = data.items[0].snippet.thumbnails.default.url;  
             let desc = data.items[0].snippet.description;
       
             let vid = `
             <div id=${data.items[0].id}>
-            <img src="${thumbnail}" alt="" class="thumb">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/${data.items[0].id}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             <h2><strong>${title}</strong></h2>
             <p>${desc}</p>
             <button type="submit" class="del" id="del_${data.items[0].id}">Delete</button>
@@ -104,6 +103,7 @@ $(async function(){
         })
       }
 
+    let apiKey = "AIzaSyAvJ6pDkMHElELRab341i0k7q7I6AMQ6Vs";
 
 
     let userID = window.location.href;
@@ -116,7 +116,8 @@ $(async function(){
     if(playlist.length == 0){
         $("#topcontainer").append($('<h1>You do not have any saved videos</h1>'));
     }
-    mainVid(playlist[0], firebaseConfig.apiKey).then(()=> injectPlaylist(playlist, firebaseConfig.apiKey));
+    //mainVid(playlist[0], apiKey).then(()=> injectPlaylist(playlist, apiKey));
+    injectPlaylist(playlist, apiKey);
 
     $(document).on('click', ".del", removeButtonHandler);
 })
