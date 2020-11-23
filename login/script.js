@@ -1,4 +1,18 @@
+let firebaseConfig = {
+    apiKey: "AIzaSyA7kpv-iyaIVtcmmys_eIekAvRMzM7OIkw",
+    authDomain: "redredistribution.firebaseapp.com",
+    databaseURL: "https://redredistribution.firebaseio.com",
+    projectId: "redredistribution",
+    storageBucket: "redredistribution.appspot.com",
+    messagingSenderId: "5265188128",
+    appId: "1:5265188128:web:26327e636df2f57e01e345",
+    measurementId: "G-30Z3SHKGLM"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+let firestore = firebase.firestore();
 
+let userID;
 
 async function register(username, email, password) {
    const result = await axios({
@@ -15,9 +29,13 @@ async function register(username, email, password) {
 
 async function login(email, password){
     firebase.auth().signInWithEmailAndPassword(email, password)
-    .then((user) => {
+    .then(async (user) => {
         alert("Logged in");
-        window.location.href = '../account';
+        const data = await firestore.collection("users").where('email', '==', `${email}`).get();
+        data.forEach(doc => {
+            userID = doc.data().uid;
+        })
+        window.location.href = '../account#' + userID;
       // Signed in 
       // ...
     })
@@ -32,18 +50,7 @@ async function login(email, password){
 $(function() {
      // Your web app's Firebase configuration
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    let firebaseConfig = {
-        apiKey: "AIzaSyA7kpv-iyaIVtcmmys_eIekAvRMzM7OIkw",
-        authDomain: "redredistribution.firebaseapp.com",
-        databaseURL: "https://redredistribution.firebaseio.com",
-        projectId: "redredistribution",
-        storageBucket: "redredistribution.appspot.com",
-        messagingSenderId: "5265188128",
-        appId: "1:5265188128:web:26327e636df2f57e01e345",
-        measurementId: "G-30Z3SHKGLM"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig); 
+    
 
     $(document).on('click','#register', function (event){
         event.preventDefault();
