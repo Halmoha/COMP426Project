@@ -15,12 +15,12 @@
 	<link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57.png">
 	<link rel="shortcut icon" href="images/ico/favicon.png">
 	<!-- <base href="/"> -->
+	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="node_modules/bulma/css/bulma.css">
-	
 </head>
 
 <body id="backtotop">
-
+	<div class="bg"></div>
 	<section class="hero is-danger is-bold">
 		<div class="hero-body">
 			<nav class="navbar" role="navigation" aria-label="main navigation">
@@ -30,49 +30,38 @@
 				<div class="navbar-menu">
 					<div class="navbar-end">
 						<a class="navbar-item has-text-weight-bold" href=".">Home</a>
-						<a class="navbar-item has-text-weight-bold" href="popular">Search Playlists</a>
+						<a class="navbar-item has-text-weight-bold" href="popular">Popular Playlists</a>
 						<a class="navbar-item has-text-weight-bold" href="create">Create a Playlist</a>
 						<a class="navbar-item has-text-weight-bold" href="login">My Account</a>
 					</div>
 				</div>
 			</nav>
 		</div>
-	</section>
+	</section>		 
 
-	<div class="fullwidth clearfix">
-		<div id="topcontainer" class="bodycontainer clearfix"
-			data-uk-scrollspy="{cls:'uk-animation-fade', delay: 300, repeat: true}">
+<div class="body-main">
 
-			<p><span class="fa fa-signal"></span></p>
-			<h1><span>Red Redistribution</span><br />is coming soon</h1>
-			<p>UNC COMP 426 Final Project</p>
+	<span style="padding-top:200px"></span>
+	
+	
 
+	<!--<form>
+		<div class="form group form-outter">
+			<label for="user" class="search-bar-text" >Search a user:</label>
+			<input type="text" size=500 name="user" class="center form-control search-bar" id="search">
+			<input type="submit" class="center wider button" value="Search">
 		</div>
-	</div>
+	</form>
 
-	<div class="arrow-separator arrow-white"></div>
-	<div class="bodycontainer">
-		<form>
-			<div class="form group">
-				<br>
-				<input type="text" class="form-control" id="search">
-				<br>
-				<input type="submit" class="button" value="Search">
-				<br>
-				<br>
-			</div>
-		</form>
+	<div class="row">
+		<div class="col-md-12">
+			<div id="videos">
 
-		<div class="row">
-			<div class="col-md-12">
-				<div id="videos">
-
-				</div>
 			</div>
 		</div>
-	</div>
-
-
+	</div>-->
+	<span style="padding-bottom:200px"></span>
+</div>
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
 

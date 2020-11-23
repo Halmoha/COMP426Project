@@ -35,7 +35,7 @@ firebase.auth().onAuthStateChanged((user) => {
 }
 )
 
-$(function(){
+/*$(function(){
     let api_key = "AIzaSyDrxzwKb_8gmqdWtdiW5_emiFcDYroEa34";
     let video = ''
 
@@ -66,4 +66,4 @@ $(function(){
         });
     }
 
-});
+});*/
