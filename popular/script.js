@@ -37,20 +37,20 @@ firebase.auth().onAuthStateChanged((user) => {
 
 
 $(function(){
-  var firebaseConfig = {
-    apiKey: "AIzaSyBbmKCsD4_f9_BDSBCCB0oFP1Lhvm_4xvo",
-    authDomain: "redredistribution.firebaseapp.com",
-    databaseURL: "https://redredistribution.firebaseio.com",
-    projectId: "redredistribution",
-    storageBucket: "redredistribution.appspot.com",
-    messagingSenderId: "5265188128",
-    appId: "1:5265188128:web:26327e636df2f57e01e345",
-    measurementId: "G-30Z3SHKGLM"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig); 
+  // var firebaseConfig = {
+  //   apiKey: "AIzaSyBbmKCsD4_f9_BDSBCCB0oFP1Lhvm_4xvo",
+  //   authDomain: "redredistribution.firebaseapp.com",
+  //   databaseURL: "https://redredistribution.firebaseio.com",
+  //   projectId: "redredistribution",
+  //   storageBucket: "redredistribution.appspot.com",
+  //   messagingSenderId: "5265188128",
+  //   appId: "1:5265188128:web:26327e636df2f57e01e345",
+  //   measurementId: "G-30Z3SHKGLM"
+  // };
+  // // Initialize Firebase
+  // firebase.initializeApp(firebaseConfig); 
 
-  let firestore = firebase.firestore();
+  // let firestore = firebase.firestore();
   
   var usernames = [];
   const docRef = firestore.collection("users").get().then(function(value){
