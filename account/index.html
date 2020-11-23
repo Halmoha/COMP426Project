@@ -20,13 +20,7 @@
 	<!-- <base href="/"> -->
 	<link rel="stylesheet" href="../node_modules/bulma/css/bulma.css">
 	
-	<!--[if IE]><![endif]-->
-	<script src="js/jquery.js"></script>
-	<script src="js/countdown.js"></script>
-	<script src="js/owlcarousel.js"></script>
-	<script src="js/uikit.scrollspy.js"></script>
-	<script src="js/scripts.js"></script>
-	<!--[if lt IE 9]><script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
 </head>
 
 <body id="backtotop">
@@ -42,20 +36,36 @@
 						<a class="navbar-item has-text-weight-bold" href="..">Home</a>
 						<a class="navbar-item has-text-weight-bold" href="../popular">Popular Playlists</a>
 						<a class="navbar-item has-text-weight-bold" href="../create">Create a Playlist</a>
-						<a class="navbar-item has-text-weight-bold" href="../account">My Account</a>
+						<a class="navbar-item has-text-weight-bold" href="../login">My Account</a>
 					</div>
 				</div>
 			</nav>
 		</div>
 	</section>
 
+	
+
 	<div class="fullwidth clearfix">
 		<div id="topcontainer" class="bodycontainer clearfix">
-			<h1>Account</h1>
 		</div>
 	</div>
 
 	<div class="arrow-separator arrow-white"></div>
+
+	<div id="vidDiv"></div>
+		<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src='script.js'></script>
 
 
 </body>
