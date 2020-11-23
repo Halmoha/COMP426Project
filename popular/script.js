@@ -22,7 +22,7 @@ firebase.auth().onAuthStateChanged((user) => {
       $(".navbar-end").empty();
       let pages = `
       <a class="navbar-item has-text-weight-bold" href="..#${userID}">Home</a>
-  <a class="navbar-item has-text-weight-bold" href="../popular/#${userID}">Popular Playlists</a>
+  <a class="navbar-item has-text-weight-bold" href="../popular/#${userID}">Search Playlists</a>
   <a class="navbar-item has-text-weight-bold" href="../create/#${userID}">Create a Playlist</a>
   <a class="navbar-item has-text-weight-bold" href="../account/#${userID}">My Account</a>
       `;

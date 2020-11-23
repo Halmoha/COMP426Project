@@ -22,7 +22,7 @@ firebase.auth().onAuthStateChanged((user) => {
     $(".navbar-end").empty();
     let pages = `
       <a class="navbar-item has-text-weight-bold" href="..#${userID}">Home</a>
-      <a class="navbar-item has-text-weight-bold" href="../popular/#${userID}">Popular Playlists</a>
+      <a class="navbar-item has-text-weight-bold" href="../popular/#${userID}">Search Playlists</a>
       <a class="navbar-item has-text-weight-bold" href="../create/#${userID}">Create a Playlist</a>
       <a class="navbar-item has-text-weight-bold" href="../account/#${userID}">My Account</a>
       `;
@@ -50,6 +50,15 @@ $(async function () {
     }
   }
 
+  const logoutButtonHandler = function (event) {
+    event.preventDefault();
+    firebase.auth().signOut()
+      .then(function () {
+        alert("Logout successful!");
+        window.location.href="..";
+      });
+  }
+
   async function remove(vidId, userID) {
 
     let user = null;
@@ -73,25 +82,25 @@ $(async function () {
           video = `
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/${data.items[0].id}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                 `
-                vidDiv.append(video);
-            }
-          ).then(() => resolve());
-        })
-        
-      
-          
-      }
-      
-      function injectPlaylist(playlist,api){
-        let vidDiv = $("#vidDiv");
-      
-        playlist.forEach(videoID => {
-          $.get('https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=' + videoID + '&key=' + api,
-          function(data){
-            let title = data.items[0].snippet.title;
-            let desc = data.items[0].snippet.description;
-      
-            let vid = `
+          vidDiv.append(video);
+        }
+      ).then(() => resolve());
+    })
+
+
+
+  }
+
+  function injectPlaylist(playlist, api) {
+    let vidDiv = $("#vidDiv");
+
+    playlist.forEach(videoID => {
+      $.get('https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=' + videoID + '&key=' + api,
+        function (data) {
+          let title = data.items[0].snippet.title;
+          let desc = data.items[0].snippet.description;
+
+          let vid = `
             <div id=${data.items[0].id}>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/${data.items[0].id}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             <h2><strong>${title}</strong></h2>
@@ -104,21 +113,28 @@ $(async function () {
     })
   }
 
-    let apiKey = "AIzaSyAvJ6pDkMHElELRab341i0k7q7I6AMQ6Vs";
+  let apiKey = "AIzaSyAvJ6pDkMHElELRab341i0k7q7I6AMQ6Vs";
 
 
-    let userID = window.location.href;
-    userID = userID.substring(userID.indexOf('#') + 1);
-    let playlist;
-    const data = await firestore.collection("users").where('uid', '==', `${userID}`).get();
-    data.forEach(doc => {
-        playlist = doc.data().playlists;
-    });
-    if(playlist.length == 0){
-        $("#topcontainer").append($('<h1>You do not have any saved videos</h1>'));
-    }
-    //mainVid(playlist[0], apiKey).then(()=> injectPlaylist(playlist, apiKey));
-    injectPlaylist(playlist, apiKey);
+  let userID = window.location.href;
+  userID = userID.substring(userID.indexOf('#') + 1);
+  let playlist;
+  const data = await firestore.collection("users").where('uid', '==', `${userID}`).get();
+  data.forEach(doc => {
+    playlist = doc.data().playlists;
+  });
+  if (playlist.length == 0) {
+    $("#topcontainer").append($('<h1>You do not have any saved videos</h1>'));
+  }
+  //mainVid(playlist[0], apiKey).then(()=> injectPlaylist(playlist, apiKey));
+  injectPlaylist(playlist, apiKey);
+
+  let logoutButton = `<div class="control">
+      <button class="button is-danger" id="logout">Logout</button>
+    </div>`
+
+  $("#backtotop").append(logoutButton)
 
   $(document).on('click', ".del", removeButtonHandler);
+  $(document).on('click', "#logout", logoutButtonHandler);
 })
