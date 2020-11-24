@@ -15,6 +15,7 @@
 	<link rel="shortcut icon" href="images/ico/favicon.png">
 	<!-- <base href="/"> -->
 	<link rel="stylesheet" href="../node_modules/bulma/css/bulma.css">
+	<link rel="stylesheet" href="../style.css">
 
 </head>
 
@@ -38,19 +39,29 @@
 		</div>
 	</section>
 
-	<div class="fullwidth clearfix">
-		<div id="topcontainer" class="bodycontainer clearfix">
-			<h1>Find a user's playlist</h1>
+	<div class="body-main">
+
+		<span style="padding-top:200px"></span>
+		
+		
+	
+		<form autocomplete="off">
+			<div class="autocomplete" style="width:300px;">
+			  <input id="myInput" type="text" name="myPlaylist" placeholder="User">
+			</div>
+			<input type=submit id="submitButton">
+		</form>
+	
+		<div class="row">
+			<div class="col-md-12">
+				<div id="videos">
+	
+				</div>
+			</div>
 		</div>
+		<span style="padding-bottom:200px"></span>
 	</div>
 
-	<form autocomplete="off">
-        <div class="autocomplete" style="width:300px;">
-          <input id="myInput" type="text" name="myPlaylist" placeholder="User">
-        </div>
-        <input type=submit id="submitButton">
-	</form>
-	
 	<div id="vidDiv"></div>
 
 	<div class="arrow-separator arrow-white"></div>

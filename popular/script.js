@@ -83,7 +83,7 @@ $(function(){
         $("#vidDiv").append($("<h1>User not found</h1>"));
       }
       else{
-        let api_key = "AIzaSyBbmKCsD4_f9_BDSBCCB0oFP1Lhvm_4xvo";
+        let api_key = "AIzaSyABYzTlftX2TFVyBwLF0C9mxJ1MmXqbqEw";
         mainVid(playlist[0], api_key).then(() => injectPlaylist(playlist,api_key));
       }
     });
