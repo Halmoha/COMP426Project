@@ -15,6 +15,7 @@ let firestore = firebase.firestore();
 
 let userID = null;
 
+// If user is logged in, the urls in the navbar will end in their user ID
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     userID = user.uid;
@@ -38,6 +39,7 @@ firebase.auth().onAuthStateChanged((user) => {
 
 $(async function () {
 
+  // removes video from the user's playlist
   const removeButtonHandler = function (event) {
     event.preventDefault();
     let vidId = event.target.id.substring(4);
@@ -50,17 +52,7 @@ $(async function () {
     }
   }
 
-  const logoutButtonHandler = function (event) {
-    event.preventDefault();
-    firebase.auth().signOut()
-      .then(function () {
-        alert("Logout successful!");
-        window.location.href="..";
-      });
-  }
-
   async function remove(vidId, userID) {
-
     let user = null;
     const data = await firestore.collection("users").where('uid', '==', `${userID}`).get();
     data.forEach(doc => {
@@ -73,24 +65,17 @@ $(async function () {
     $('#' + vidId).empty();
   }
 
-  function mainVid(vidID, api) {
-    return new Promise((resolve, reject) => {
-      let vidDiv = $("#vidDiv");
-      vidDiv.empty();
-      $.get('https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=' + vidID + '&key=' + api,
-        function (data) {
-          video = `
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/${data.items[0].id}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                `
-          vidDiv.append(video);
-        }
-      ).then(() => resolve());
-    })
-
-
-
+  // logs user out and returns them to the home page
+  const logoutButtonHandler = function (event) {
+    event.preventDefault();
+    firebase.auth().signOut()
+      .then(function () {
+        alert("Logout successful!");
+        window.location.href="..";
+      });
   }
 
+  // displays each video in the user's playlist, along with a delete button
   function injectPlaylist(playlist, api) {
     let vidDiv = $("#vidDiv");
 
@@ -113,8 +98,11 @@ $(async function () {
     })
   }
 
+  // youtube api key
   let apiKey = "AIzaSyAvJ6pDkMHElELRab341i0k7q7I6AMQ6Vs";
 
+
+  // DISPLAYED ON PAGE:
 
   let userID = window.location.href;
   userID = userID.substring(userID.indexOf('#') + 1);
@@ -126,7 +114,7 @@ $(async function () {
   if (playlist.length == 0) {
     $("#topcontainer").append($('<h1>You do not have any saved videos</h1>'));
   }
-  //mainVid(playlist[0], apiKey).then(()=> injectPlaylist(playlist, apiKey));
+  
   injectPlaylist(playlist, apiKey);
 
   let logoutButton = `<div class="control">
@@ -135,6 +123,9 @@ $(async function () {
 
   $("#backtotop").append(logoutButton)
 
+
+
+  // button event handlers
   $(document).on('click', ".del", removeButtonHandler);
   $(document).on('click', "#logout", logoutButtonHandler);
 })
