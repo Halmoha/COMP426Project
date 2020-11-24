@@ -84,7 +84,8 @@ $(function(){
       }
       else{
         let api_key = "AIzaSyABYzTlftX2TFVyBwLF0C9mxJ1MmXqbqEw";
-        mainVid(playlist[0], api_key).then(() => injectPlaylist(playlist,api_key));
+        //mainVid(playlist[0], api_key).then(() => 
+        injectPlaylist(playlist,api_key);
       }
     });
   }
@@ -109,25 +110,25 @@ function mainVid(vidID, api){
     
 }
 
-function injectPlaylist(playlist,api){
+function injectPlaylist(playlist, api) {
   let vidDiv = $("#vidDiv");
 
   playlist.forEach(videoID => {
     $.get('https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=' + videoID + '&key=' + api,
-    function(data){
-      let title = data.items[0].snippet.title;
-      let thumbnail = data.items[0].snippet.thumbnails.default.url;  
-      let desc = data.items[0].snippet.description;
+      function (data) {
+        let title = data.items[0].snippet.title;
+        let desc = data.items[0].snippet.description;
 
-      let vid = `
-      <div id=${data.items[0].id}>
-      <img src="${thumbnail}" alt="" class="thumb">
-      <h2><strong>${title}</strong></h2>
-      <p>${desc}</p>
-      </div>
-    `;
-    vidDiv.append(vid);
-    });
+        let vid = `
+          <div id=${data.items[0].id}>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/${data.items[0].id}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          <h2><strong>${title}</strong></h2>
+          <p>${desc}</p>
+          <button type="submit" class="del" id="del_${data.items[0].id}">Delete</button>
+          </div>
+        `;
+        vidDiv.append(vid);
+      });
   })
 }
 
