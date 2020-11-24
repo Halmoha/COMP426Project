@@ -124,7 +124,6 @@ function injectPlaylist(playlist, api) {
           <iframe width="560" height="315" src="https://www.youtube.com/embed/${data.items[0].id}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           <h2><strong>${title}</strong></h2>
           <p>${desc}</p>
-          <button type="submit" class="del" id="del_${data.items[0].id}">Delete</button>
           </div>
         `;
         vidDiv.append(vid);
