@@ -33,25 +33,20 @@
     background-color: #FCFFEB;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    
+    align-items: center;  
   }
   
   
   .form-outter{
-  
     margin-left: auto;
     margin-right: auto;
     display: flex;
     flex-direction: column;
-  
-  
   }
   
   .center {
     margin-left: auto;
-    margin-right: auto;
-    
+    margin-right: auto;  
   }
   
   
@@ -65,7 +60,6 @@
   }
   
   .search-bar-text{
-  
     align-items: center;
     margin-left: auto;
     margin-right: auto;

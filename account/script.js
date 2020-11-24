@@ -86,10 +86,12 @@ $(async function () {
           let desc = data.items[0].snippet.description;
 
           let vid = `
-            <div id=${data.items[0].id}>
+            <div class="video" id=${data.items[0].id}>
+            <div class="iframe">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/${data.items[0].id}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
             <h2><strong>${title}</strong></h2>
-            <p>${desc}</p>
+            <p class="description">${desc}</p>
             <button type="submit" class="del" id="del_${data.items[0].id}">Delete</button>
             </div>
           `;
