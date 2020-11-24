@@ -66,7 +66,7 @@ const handleAddButtonPress = function (event) {
 
 $(function () {
 
-    let api_key = "AIzaSyCDFTbOTbK2xOlwKBOKKSI8F5CO9pybQzk";
+    let api_key = "AIzaSyAk0dzxvfOC31bFONZV50NXpjgGOTfZMZ4";
     let video = ''
     const $videos = $("#videos");
 

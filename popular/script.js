@@ -69,7 +69,7 @@ $(function(){
         $("#vidDiv").append($("<h1>User not found</h1>"));
       }
       else{
-        let api_key = "AIzaSyABYzTlftX2TFVyBwLF0C9mxJ1MmXqbqEw";
+        let api_key = "AIzaSyBjk8-509hsr4gFW2br6w1e4r5RKRKQVU0";
         injectPlaylist(playlist,api_key);
       }
     });

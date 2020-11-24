@@ -101,11 +101,9 @@ $(async function () {
         });
     })
   }
-  // removed from above:
-  // <button type="submit" class="del" id="del_${data.items[0].id}">Delete</button>
 
   // youtube api key
-  let apiKey = "AIzaSyAvJ6pDkMHElELRab341i0k7q7I6AMQ6Vs";
+  let apiKey = "AIzaSyCHxnQSu0Kk4hENt09HFgqYnLEaSV46dSc";
 
 
   // DISPLAYED ON PAGE:
