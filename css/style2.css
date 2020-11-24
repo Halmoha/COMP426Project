@@ -15,3 +15,7 @@
   h2 {
       font-size: 20px;
   }
+
+  #logout {
+      margin: 10px 20px;
+  }

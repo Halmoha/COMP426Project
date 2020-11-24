@@ -71,7 +71,7 @@ $(async function () {
     firebase.auth().signOut()
       .then(function () {
         alert("Logout successful!");
-        window.location.href="..";
+        window.location.href = "..";
       });
   }
 
@@ -87,18 +87,22 @@ $(async function () {
 
           let vid = `
             <div class="video" id=${data.items[0].id}>
-            <div class="iframe">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/${data.items[0].id}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            </div>
-            <h2><strong>${title}</strong></h2>
-            <p class="description">${desc}</p>
-            <button type="submit" class="del" id="del_${data.items[0].id}">Delete</button>
+              <div class="iframe">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/${data.items[0].id}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+              </div>
+              <h2><strong>${title}</strong></h2>
+              <p class="description">${desc}</p>
+              <div class="control">
+                <button class="button del" id="del_${data.items[0].id}">Delete</button>
+              </div>
             </div>
           `;
           vidDiv.append(vid);
         });
     })
   }
+  // removed from above:
+  // <button type="submit" class="del" id="del_${data.items[0].id}">Delete</button>
 
   // youtube api key
   let apiKey = "AIzaSyAvJ6pDkMHElELRab341i0k7q7I6AMQ6Vs";
@@ -116,7 +120,7 @@ $(async function () {
   if (playlist.length == 0) {
     $("#topcontainer").append($('<h1>You do not have any saved videos</h1>'));
   }
-  
+
   injectPlaylist(playlist, apiKey);
 
   let logoutButton = `<div class="control">
